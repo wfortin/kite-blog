@@ -3,7 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import BlogThumbnail from "../components/BlogThumbnail.astro";
+import BlogCard from "../components/BlogCard.astro";
 ---
 
 <!doctype html>
@@ -27,9 +27,9 @@ import BlogThumbnail from "../components/BlogThumbnail.astro";
       <h2 class="text-3xl font-bold mt-8 mb-4 font-display">Latest spots</h2>
       <p class="text-md text-gray-500 mb-4">Where we've been and what we've been up to.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <BlogThumbnail title="Paracas, Peru" image="/spots/paracas/paracas-1.jpeg" date="Nov 2024" />
-        <BlogThumbnail title="Maui, Hawaii" image="/spots/maui/maui-1.jpeg" date="Oct 2024" />
-        <BlogThumbnail title="Prea, Brazil" image="/spots/prea/prea-2.jpeg" date="Nov 2023" />
+        <BlogCard title="Paracas, Peru" image="/src/assets/spots/paracas/paracas-1.jpeg" date="Nov 2024" />
+        <BlogCard title="Maui, Hawaii" image="/src/assets/spots/maui/maui-1.jpeg" date="Oct 2024" />
+        <BlogCard title="Prea, Brazil" image="/src/assets/spots/prea/prea-2.jpeg" date="Nov 2023" />
       </div>
     </section>
     <Footer />

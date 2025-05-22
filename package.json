@@ -17,6 +17,7 @@
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
-    "@flydotio/dockerfile": "^0.7.10"
+    "@flydotio/dockerfile": "^0.7.10",
+    "@types/react": "^19.1.5"
   }
 }
