@@ -4,10 +4,18 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import { Image } from "astro:assets";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, heroImageOptimized } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,gif}"
+);
+if (heroImageOptimized && !images[heroImageOptimized])
+  throw new Error(
+    `"${heroImageOptimized}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
 ---
 
 <html lang="en">
@@ -61,6 +69,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
           {
             heroImage && (
               <img width={1020} height={510} src={heroImage} alt="" />
+            )
+          }
+          {
+            heroImageOptimized && (
+              <Image width={1020} height={510} src={images[heroImageOptimized]()} alt="" />
             )
           }
         </div>
